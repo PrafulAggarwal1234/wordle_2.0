@@ -10,14 +10,14 @@ function App() {
   socket.on("solution-word",(word)=>{
     setSolution(word);
   })
-  console.log(solution);
+  // console.log(solution);
   return (
     <Router>
     
       {/* Define the routes */}
       <Routes>
         <Route path="/" exact element={<Form socket={socket} setPlayer2={setPlayer2}/>} />
-        <Route path="/room/:id/:username" element={solution && <Wordle socket={socket } solution={solution} player2={player2}/>} />
+        <Route path="/room/:id/:username" element={<Wordle socket={socket } solution={solution} player2={player2}/>} />
       </Routes>
   </Router>
   );

@@ -15,7 +15,6 @@ export default function Wordle({socket,solution,player2}){
     const [opponentGuesses,setOppponentGuesses]=useState([...Array(6)]);
     const [gameOver,setGameOver]=useState(false);
     const navigate = useNavigate();
-    let alerted=false;
     // const [player2,setPlayer2] = useState({'username':'','socket_id':''});
     const handleClicktemp = (l) =>{
         console.log("clciked",l);
@@ -43,13 +42,13 @@ export default function Wordle({socket,solution,player2}){
             socket.off("opponent-disconnected", handleOpponentDisconnected);
         };
     }, [socket]);
-    window.addEventListener('beforeunload', function (event) {
-        // Logic to determine whether to redirect, if necessary
-        // For example, checking a specific condition:
-        // if (someCondition) {
-        window.location.href = 'http://localhost:3000/'; // Redirect URL
-        // }
-      });
+    // window.addEventListener('beforeunload', function (event) {
+    //     // Logic to determine whether to redirect, if necessary
+    //     // For example, checking a specific condition:
+    //     // if (someCondition) {
+    //     window.location.href = 'http://localhost:3000/'; // Redirect URL
+    //     // }
+    //   });
       
     useEffect(()=>{
         window.addEventListener('keyup',handleKeyup);
