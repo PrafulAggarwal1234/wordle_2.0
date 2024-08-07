@@ -7,6 +7,7 @@ function App() {
   const [solution,setSolution] =useState(null);
   const [player2,setPlayer2]=useState({'username':'','socket_id':''});
   const socket= useMemo(() => io("https://wordle-server-ddo7.onrender.com/"), []);
+  // const socket= useMemo(() => io("http://localhost:8000/"), []);
   socket.on("solution-word",(word)=>{
     setSolution(word);
   })
