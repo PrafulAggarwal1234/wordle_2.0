@@ -5,8 +5,10 @@ const Form = ({socket,setPlayer2}) => {
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
     const [loading,setLoading] = useState(false);
+    const [isClicked,setIsClicked]=useState(false);
     // const [isavailable,setIsavailable]=useState(false);
     const joinRoom = ()=>{
+        setIsClicked(true);
         socket.emit("userjoined",{roomId,username});
         socket.on("roomfull",(isavailable)=>{
             console.log('cant be');
@@ -41,7 +43,7 @@ const Form = ({socket,setPlayer2}) => {
                     onChange={(e) => setUsername(e.target.value)} 
                     style={styles.input}
                 />
-                <button onClick={joinRoom} style={styles.button}>Join Room</button>
+                <button disabled={isClicked} onClick={joinRoom} style={styles.button}>Join Room</button>
                 {loading && <h2 style={styles.loading}>Loading....</h2>}
             </div>
             <div style={styles.instructions}>
