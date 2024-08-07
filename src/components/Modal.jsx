@@ -18,6 +18,7 @@ export default function Modal({won,turn,solution,setModalFlag}){
                     <h1>Game Over!</h1>
                     {/* <p className="solution">word: {solution}</p> */}
                     <p>Opponent has guessed the correct answer :(</p>
+                    <p>You can still continue playing!</p>
                 </div>
             )}
             {won==0 && (
