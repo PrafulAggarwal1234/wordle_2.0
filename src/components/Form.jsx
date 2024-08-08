@@ -37,6 +37,21 @@ const Form = ({socket,setPlayer2}) => {
     };
 
     const handleSubmit = () => {
+        console.log('heresubmit matchtype: ',matchType )
+        if (username.trim() === '') {
+            alert('Please enter a valid your username.');
+            return;
+        }
+        if (matchType === 'friend') {
+            const roomIdInt = parseInt(roomId, 10);
+            if (roomId.trim() === '') {
+                alert('Please enter a room ID.');
+                return;
+            } else if (isNaN(roomIdInt) || roomIdInt <= 0) {
+                alert('Please enter a valid room ID (positive integer).');
+                return;
+            }
+        }
         if (matchType === 'friend') {
             joinRoom();
         } else {
@@ -78,6 +93,7 @@ const Form = ({socket,setPlayer2}) => {
                             placeholder='Enter Your Room Id' 
                             onChange={(e) => setRoomId(e.target.value)} 
                             style={styles.input}
+                            required
                         />
                     )}
                     <input 
@@ -85,6 +101,7 @@ const Form = ({socket,setPlayer2}) => {
                         placeholder='Enter Your Name' 
                         onChange={(e) => setUsername(e.target.value)} 
                         style={styles.input}
+                        required
                     />
                     <button disabled={isClicked} onClick={handleSubmit} style={styles.button}>
                         {matchType === 'friend' ? 'Join Room' : 'Random Match'}
