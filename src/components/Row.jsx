@@ -3,7 +3,7 @@ export default function Row({guess,currentGuess,flag}){
         return(
             <div className="row past">
                 {guess.map((element,i)=>{
-                    return flag ? <div key={i} className={element.color}>{element.key}</div> : <div key={i} className={element.color}>..</div>
+                    return flag ? <div key={i} className={element.color}>{element.key}</div> : <div key={i} className={element.color}></div>
                 })}
             </div>
         )
