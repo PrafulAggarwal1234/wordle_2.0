@@ -70,6 +70,11 @@ h1{
   
 }
 
+.grids{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .keypad div{
   margin: 5px;
   width: 40px;
@@ -171,3 +176,35 @@ h1{
     border-color: #333;
   }
 }
+
+@media (max-width: 750px) {
+  /* Your CSS rules here */
+  .grids{
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  /* .grids .opponent-grid{
+    width: 100px;
+  } */
+
+  .grids .opponent-grid:nth-child(1) .row div{
+     width: 15px;
+     height: 15px;
+  }
+
+  .grids .opponent-grid:nth-child(2) .row div{
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+ }
+
+  .grids .opponent-grid:nth-child(1) h2{
+     font-size: 12px;
+ } 
+  .grids .opponent-grid:nth-child(2) h2{
+     font-size: 20px;
+ } 
+}
+

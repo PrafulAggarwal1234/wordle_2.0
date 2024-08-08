@@ -75,13 +75,13 @@ export default function Wordle({socket,solution,player2}){
     },[player2])
     return(
         <>
-        <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+        {/* <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
             <h2>{player2.username}</h2>
             <h2>{username}</h2>
-        </div>
-        <div style={{display: "flex", justifyContent: 'space-evenly' }}>
-            <Grid guesses={opponentGuesses} flag={false}/>
-            <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} flag={true}/>
+        </div> */}
+        <div className="grids">
+            <Grid guesses={opponentGuesses} username={player2.username} flag={false}/>
+            <Grid guesses={guesses} username={username} currentGuess={currentGuess} turn={turn} flag={true}/>
         </div>
         <Keypad usedKeys={usedKeys} handleClick={handleMouseClick}/>
         {modelFlag && showModel &&<Model won={isCorrect ? 1 : (gameOver ? -1 : 0)} turn={turn} solution={solution} setModalFlag={setModalFlag}/>}
